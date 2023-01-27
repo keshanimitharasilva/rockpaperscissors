@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="game.css" />
+    <script defer src="game.js"></script>
+    <script src="https://kit.fontawesome.com/3cc4c2d931.js" crossorigin="anonymous"></script>
+    <title>Game Page</title>
+</head>
+<body>
+<!--COIS 3420H ASSIGNMENT 3 Q2 - W2021 - KESHANI SILVA-->
+
+<!--- HEADER ---> 
+<header>
+    <h1>Rock. Paper. Scissors.</h1>
+</header>
+
+<!--- MAIN ---> 
+<main>
+    <div class="gamePageContainer">
+
+        <!--- POINTS BOARD ---> 
+        <div class = "pointsContainer">
+            <div class="points">
+                <div>
+                    <h2><span id="rounds"> </span> Rounds</h2>
+                </div>
+                <div>
+                    <h3><span id="wins"> </span>Wins</h3>
+                    <h3><span id="losses"> </span>Losses</h3>
+                </div>
+            </div>
+        </div>
+        
+        <!--- THE GAME ---> 
+        <div class="formContainer">
+            <form action=" " method="POST" id="playForm"> 
+                <div class="select">
+                    <button id="rock"><i class="fas fa-hand-rock"></i></button>
+                    <button id="paper"><i class="fas fa-hand-paper"></i></button>
+                    <button id="scissors"><i class="fas fa-hand-scissors"></i></button>
+                </div>
+                <div class="restartContainer">
+                    <button id="restart">Restart Game</button>
+                </div>
+            </form>
+            <!--- GAME OVER ---> 
+            <div id="gameOverContainer" class="hidden">
+                <p class="gameOver">Game Over</p>
+                <form id="enterName" enctype="multipart/form-data" action=" " method="POST">
+                    <label for="hsName">Enter Your Name To Record Your High Score:</label>
+                    <input id="hsName" name="hsName" type="text"/>
+                    <button type="submit" class="submitName" name="sendMessage">Submit</button>
+                    <span id="hsNameError"></span>
+                </form>
+            </div>
+        </div>
+        
+        <!--- FEEDBACK FORM ---> 
+        <div class = "messageFormContainer">
+            <div class="message">
+                <div class = "shout"> 
+                    <p>You picked:<span id="youPicked">   </span></p>
+                    <p>Computer picked: <span id="gamePicked">  </span></p> 
+                </div>
+                <p id="wonMessage" class="hidden">You Won</p>
+                <p id="lostMessage" class="hidden">You Lost</p>
+                <p id="drawMessage" class="hidden">It's A Draw</p>
+            </div>
+        </div>
+    </div>
+
+    <!--- RULES ---> 
+    <div class="rules">
+        <h2>Rules:</h2>
+        <p>Each player can play until they lose 10 times.</p>
+        <p>You score a point for each round won.</p>
+        <h3>Good Luck!</h3>
+        <button id="seeHighScores">See High Scores</button>
+    </div>
+
+    <!--- HIGH SCORES ---> 
+    <!--code referenced from: 
+    https://medium.com/@nerdplusdog/a-how-to-guide-for-modal-boxes-with-javascript-html-and-css-6a49d063987e -->
+    <div id="modal">
+        <div class="highScores" id="modal-content">
+            <span id="close-btn">&times;</span>
+            <table class="highScoreTable">
+                <tbody>
+                    <tr> 
+                        <th>Rank</th>
+                        <th>Score</th>
+                        <th>Name</th>
+                    </tr> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</main>
+
+<!--- FOOTER ---> 
+<footer>
+    <p> &#169; 2021</p>
+</footer>
+
+</body>
+</html>
